@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 15, 23, 42;
+  --background-end-rgb: 30, 41, 59;
+}
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.0%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --primary-blue: 217.2 91.2% 59.8%;
+    --primary-blue-dark: 217.2 91.2% 45%;
+    --primary-blue-light: 217.2 91.2% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-slate-900 text-foreground;
+    background: linear-gradient(135deg, rgb(15, 23, 42) 0%, rgb(30, 41, 59) 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Glass effect with dark blue theme */
+.glass {
+  background: rgba(30, 58, 138, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+/* Particle styles with blue theme */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: float 3s ease-in-out infinite;
+  background-color: rgb(59, 130, 246);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.particle-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Resume button highlight animation with blue theme */
+.resume-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(59, 130, 246, 0.2),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: highlight-sweep 3s linear infinite;
+}
+
+@keyframes highlight-sweep {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(0%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Border beam animation with blue theme */
+.border-beam {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.border-beam::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  padding: 2px;
+  background: linear-gradient(
+    90deg,
+    #3b82f6 0%,
+    #60a5fa 25%,
+    #3b82f6 50%,
+    #60a5fa 75%,
+    #3b82f6 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: border-beam 4s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes border-beam {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* Shine border animation for logo with blue theme */
+.shine-border {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.shine-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.6) 45%,
+    rgba(59, 130, 246, 0.8) 50%,
+    rgba(59, 130, 246, 0.6) 55%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: shine-rotate 4s linear infinite;
+}
+
+@keyframes shine-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dynamic Island Animation */
+.section-reveal {
+  animation: reveal 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+
+/* Section transitions */
+section {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+section:hover {
+  transform: scale(1.002);
+}
+
+@keyframes expandWidth {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Blue gradient backgrounds */
+.blue-gradient {
+  background: linear-gradient(135deg, rgb(30, 58, 138) 0%, rgb(59, 130, 246) 100%);
+}
+
+.blue-gradient-light {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+}

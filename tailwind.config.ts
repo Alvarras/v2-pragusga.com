@@ -3,9 +3,9 @@ import type { Config } from 'tailwindcss';
 const config: Config = {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
@@ -18,10 +18,10 @@ const config: Config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
-          orange: {
-            light: '#FF7043',
-            DEFAULT: '#FF5722',
-            dark: '#F4511E'
+          blue: {
+            light: '#60a5fa',
+            DEFAULT: '#3b82f6',
+            dark: '#1d4ed8'
           }
         },
         secondary: {
